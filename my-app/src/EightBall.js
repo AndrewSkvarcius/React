@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
+import "./EightBall.css";
+
 const shake = (arr) => {
-    const ranIdx = Math.floor(Math.randomm() * arr.length)
-    return arr[ ranIdx ] 
+    const ranIdx = Math.floor(Math.random() * arr.length)
+    return arr[ranIdx] 
 }
 
 const EightBall = (props) => {
-const {message, setmessage} = useState("Think of a Question");
+const [msg, setMessage] = useState("Think of a Question");
 const [color, setColor] = useState("black");
 
 
 function handleClick() {
-    const {message, color} = shake(props.answers);
-    setmessage(message);
+    const { msg, color } = shake(props.answers);
+    setMessage(msg);
     setColor(color);
 }
 
 return (
-    <div className="EightBall" onClick={handleClick} style={{ backgroundColor: color }}>
-        <b>{message}</b>
+    <div className="EightBall" 
+    onClick={handleClick} 
+    style={{ backgroundColor: color }}>
+        <b>{msg}</b>
     </div>
 );
 }
