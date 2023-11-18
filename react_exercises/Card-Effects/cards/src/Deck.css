@@ -1,0 +1,29 @@
+.Deck {
+    text-align: center;
+    background-color: green;
+  }
+  
+  .Deck-btn {
+    padding: 15px;
+    background-color: darkred;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    margin: 0 10px;
+  }
+  
+  .Deck-btn:hover {
+    cursor: pointer;
+    background-color: blue;
+  }
+  
+  .Deck-btn:active,
+  .Deck-btn:focus {
+    outline: none;
+  }
+  
+  .Deck-card-area {
+    margin-top: 80px;
+    background-color: rgb(201, 28, 141);
+    
+  }
