@@ -63,6 +63,19 @@ useEffect(() => {
         };
     }, [autoDeal, setAutoDeal, deck]);
 
+    // Shuffles current deck
+    
+    const shuffleDeck = async () => {
+        if (deck && deck.deck_id) {
+            try {
+                await axios.get(`${BASE_URL}/${deck.deck_id}/shuffle/`);
+                setDrawn([]); // Reset the drawn cards
+            } catch (error) {
+                alert("Error shuffling the deck: " + error);
+            }
+        }
+    };
+
     const toggleAutoDeal = () => {
         setAutoDeal(autoDeal => !autoDeal);
     };
@@ -73,18 +86,22 @@ useEffect(() => {
 
     return (
         <div className="Deck">
-            {deck ? (
+        {deck ? (
+            <>
                 <button className="Deck-btn" onClick={toggleAutoDeal}>
                     {autoDeal ? "STOP" : "KEEP"} DRAWING
                 </button>
-            ) : null}
-            <div className="Deck-card-area">
-                {cards}
-
-            </div>
+                <button className="Deck-btn" onClick={shuffleDeck}>
+                    SHUFFLE DECK
+                </button>
+            </>
+        ) : null}
+        <div className="Deck-card-area">
+            {cards}
         </div>
-    )
-}
+    </div>
+);
+};
 
 
 

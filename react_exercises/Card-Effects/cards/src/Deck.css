@@ -1,6 +1,7 @@
 .Deck {
     text-align: center;
-    background-color: green;
+    margin-top: 20px;
+  
   }
   
   .Deck-btn {
@@ -14,7 +15,7 @@
   
   .Deck-btn:hover {
     cursor: pointer;
-    background-color: blue;
+    background-color: darkgreen;
   }
   
   .Deck-btn:active,
@@ -26,4 +27,9 @@
     margin-top: 80px;
     background-color: rgb(201, 28, 141);
     
+  }
+
+  canvas{
+    color:bisque
+
   }
