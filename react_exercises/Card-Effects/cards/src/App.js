@@ -1,11 +1,12 @@
 import React from 'react';
-import Deck from './Deck';
+import CardTable from './CardTable';
+
 
 function App() {
   return (
- <div>
-  <Deck />
- </div>
+
+<CardTable />
+
   );
 }
 

@@ -1,0 +1,32 @@
+.Candy {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .Candy button {
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    background-color:violet;
+  }
+  
+  .Candy button:hover {
+    background-color:pink;
+    cursor: pointer;
+  }
+  
+  .Candy button:active,
+  .Candy button:focus {
+    outline: none;
+  }
+  
+  .bag {
+    max-width: 300px;
+    position: absolute;
+    z-index: -1;
+  }

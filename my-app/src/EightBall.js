@@ -10,6 +10,9 @@ const EightBall = (props) => {
 const [msg, setMessage] = useState("Think of a Question");
 const [color, setColor] = useState("black");
 
+function reStart(){
+    
+}
 
 function handleClick() {
     const { msg, color } = shake(props.answers);
@@ -22,6 +25,8 @@ return (
     onClick={handleClick} 
     style={{ backgroundColor: color }}>
         <b>{msg}</b>
+
+        <button onClick={reStart}></button>
     </div>
 );
 }
