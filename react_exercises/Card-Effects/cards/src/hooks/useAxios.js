@@ -22,16 +22,26 @@ function useAxios(keyI, base_url) {
     return [res,addResData,clearRes];
 };
 function useLocalStorage(key, initialValue = []) {
-    if (localStorage.getItem(key)) {
-      initialValue = JSON.parse(localStorage.getItem(key));
-    }
-    const [value, setValue] = useState(initialValue);
-  
-    useEffect(() => {
-      localStorage.setItem(key, JSON.stringify(value));
-    }, [value, key]);
-  
-    return [value, setValue];
-  }
+  const [value, setValue] = useState(() => {
+      try {
+          const item = localStorage.getItem(key);
+          return item ? JSON.parse(item) : initialValue;
+      } catch (error) {
+          console.error("Error reading localStorage key", key, ":", error);
+          return initialValue;
+      }
+  });
+
+  useEffect(() => {
+      try {
+          localStorage.setItem(key, JSON.stringify(value));
+      } catch (error) {
+          console.error("Error saving to localStorage key", key, ":", error);
+      }
+  }, [value, key]);
+
+  return [value, setValue];
+}
+
 export default useLocalStorage;
 export {useAxios, useLocalStorage};
